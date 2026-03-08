@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://enchaserredux"]
+
+[ext_resource type="Script" path="res://scripts/enemy_chaser.gd" id="1"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 17.0
+
+[sub_resource type="CircleShape2D" id="2"]
+radius = 24.0
+
+[node name="EnemyChaser" type="CharacterBody2D"]
+script = ExtResource("1")
+collision_layer = 1
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="Body" type="Polygon2D" parent="."]
+color = Color(0.82, 0.22, 0.92, 1)
+polygon = PackedVector2Array(0, -18, 18, 0, 0, 18, -18, 0)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("2")
